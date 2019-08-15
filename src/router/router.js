@@ -67,6 +67,18 @@ export default new Router({
       ]
     },
     {
+      path: "/setting",
+      component: Layout,
+      redirect: "",
+      children: [
+        {
+          path: "user",
+          component: _import("User"),
+          name: "user"
+        }
+      ]
+    },
+    {
       path: "/login",
       name: "login",
       component: _import("Login")
