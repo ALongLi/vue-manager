@@ -1,0 +1,143 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+ol,
+ul {
+  list-style-image: none;
+  list-style-position: outside;
+  list-style-type: none;
+}
+li {
+  text-align: left;
+}
+html,
+body,
+#app,
+.wrapper {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+body {
+  font-family: "PingFang SC", "Helvetica Neue", Helvetica, "microsoft yahei",
+    arial, STHeiTi, sans-serif;
+}
+a {
+  text-decoration: none;
+}
+.clearfix {
+  clear: both;
+  overflow: hidden;
+  &:after {
+    content: " ";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+  }
+}
+.content-box {
+  position: absolute;
+  left: 200px;
+  right: 0;
+  top: 70px;
+  bottom: 0;
+  // padding-bottom: 30px;
+  -webkit-transition: left 0.3s ease-in-out;
+  transition: left 0.3s ease-in-out;
+  background: #f0f0f0;
+  // background-color: #184064
+}
+.content {
+  width: auto;
+  height: 100%;
+  padding: 10px;
+  overflow: auto;
+  box-sizing: border-box;
+}
+.content-collapse {
+  left: 65px;
+}
+.show-aside {
+  left: 0;
+}
+.container {
+  padding: 30px 30px 0px 30px;
+  background: $white;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  height: calc(100% - 33px);
+}
+.crumbs {
+  margin: 10px 0;
+}
+.mr10 {
+  margin-right: 10px;
+}
+.pagination {
+  margin: 20px 0;
+  text-align: right;
+}
+.plugins-tips {
+  padding: 20px 10px;
+  margin-bottom: 20px;
+}
+.el-button {
+  & + .el-tooltip {
+    margin-left: 10px;
+  }
+}
+.el-table {
+  tr {
+    &:hover {
+      background: #f6faff;
+    }
+  }
+}
+.mgb20 {
+  margin-bottom: 20px;
+}
+.move-enter-active,
+.move-leave-active {
+  transition: opacity 0.5s;
+}
+.move-enter,
+.move-leave {
+  opacity: 0;
+}
+.g-core-image-corp-container {
+  .info-aside {
+    height: 45px;
+  }
+}
+.fl {
+  float: left !important;
+}
+.fr {
+  float: right !important;
+}
+.scrollbar::-webkit-scrollbar,
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+.scrollbar::-webkit-scrollbar-thumb,
+::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  box-shadow: inset 0 0 5px rgba(110, 104, 104, 0.2);
+  background: #797777;
+}
+.scrollbar::-webkit-scrollbar-track,
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px rgba(146, 138, 138, 0.2);
+  border-radius: 10px;
+  background: #ededed;
+}
+.mr28 {
+  margin-right: 28px;
+}
+.handle-box {
+  margin-bottom: 20px;
+  float: right;
+}

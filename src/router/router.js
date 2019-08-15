@@ -3,17 +3,13 @@ const _import = require("./_import_" + process.env.NODE_ENV);
 
 import Router from "vue-router";
 import Home from "@/views/Home.vue";
+import Layout from "@/components/Layout/Layout.vue";
 // import about from "./views/About.vue";
 
 Vue.use(Router);
 
 export default new Router({
   routes: [
-    {
-      path: "/",
-      name: "home",
-      component: Home
-    },
     {
       path: "/about",
       name: "about",
@@ -27,8 +23,26 @@ export default new Router({
       // component: () => import("./views/About.vue")
     },
     {
+      path: "/",
+      component: Layout,
+      redirect: "/404",
+      children: [
+        {
+          path: "404",
+          component: _import("404"),
+          name: "404"
+        }
+      ]
+    },
+    {
       path: "/404",
+      name: "404",
       component: _import("404")
+    },
+    {
+      path: "/login",
+      name: "login",
+      component: _import("Login")
     },
     {
       path: "*",

@@ -1,6 +1,15 @@
 module.exports = {
   baseUrl: "./",
   productionSourceMap: false,
+  css: {
+    loaderOptions: {
+      sass: {
+        data: `
+          @import "@/assets/css/_variable.scss";
+        `
+      }
+    }
+  },
   devServer: {
     open: true,
     proxy: {
