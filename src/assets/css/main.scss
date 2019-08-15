@@ -99,3 +99,31 @@ a {
   border-radius: 10px;
   background: #ededed;
 }
+
+.sidebar-container {
+  .nest-menu .el-submenu__title,
+  .el-submenu .el-menu-item {
+    min-width: $sideBarWidth !important;
+    background-color: $subMenuBg !important;
+    &:hover {
+      background-color: $subMenuHover !important;
+    }
+  }
+}
+
+//动画
+/* fade-transform */
+.fade-transform-leave-active,
+.fade-transform-enter-active {
+  transition: all 0.5s;
+}
+
+.fade-transform-enter {
+  opacity: 0;
+  transform: translateX(-30px);
+}
+
+.fade-transform-leave-to {
+  opacity: 0;
+  transform: translateX(30px);
+}

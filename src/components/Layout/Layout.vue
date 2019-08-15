@@ -2,7 +2,7 @@
   <div class="wrapper" :class="classObj">
     <Sidebar></Sidebar>
     <div class="content-box" :class="{ 'content-collapse': collapse }">
-      <Header></Header>
+      <Header class="header"></Header>
       <!-- <v-tags></v-tags> -->
       <div class="content">
         <transition name="fade-transform" mode="out-in">
@@ -53,5 +53,8 @@ export default {
 <style scoped>
 #app {
   color: #000;
+}
+.header {
+  background-color: #fff;
 }
 </style>

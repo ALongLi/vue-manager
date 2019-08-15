@@ -1,7 +1,7 @@
 <template>
   <div>
     <Navbar></Navbar>
-    <Tags></Tags>
+    <!-- <Tags></Tags> -->
   </div>
 </template>
 <script>

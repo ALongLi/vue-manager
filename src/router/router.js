@@ -10,6 +10,17 @@ Vue.use(Router);
 export default new Router({
   routes: [
     {
+      path: "/redirect",
+      component: Layout,
+      hidden: true,
+      children: [
+        {
+          path: "/redirect/:path*",
+          component: _import("redirect/index")
+        }
+      ]
+    },
+    {
       path: "/about",
       name: "about",
       // route level code-splitting
@@ -24,19 +35,36 @@ export default new Router({
     {
       path: "/",
       component: Layout,
-      redirect: "/404",
+      redirect: "/home",
       children: [
         {
-          path: "404",
-          component: _import("404"),
-          name: "404"
+          path: "/404",
+          name: "404",
+          component: _import("404")
+        },
+        {
+          path: "/home",
+          component: _import("Home"),
+          name: "home"
+        },
+        {
+          path: "/appAnalysis",
+          component: _import("Home"),
+          name: "appAnalysis"
         }
       ]
     },
     {
-      path: "/404",
-      name: "404",
-      component: _import("404")
+      path: "/user",
+      component: Layout,
+      // redirect: "",
+      children: [
+        {
+          path: "userAnalysis",
+          component: _import("Home2"),
+          name: "userAnalysis"
+        }
+      ]
     },
     {
       path: "/login",
