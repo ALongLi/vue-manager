@@ -2,7 +2,6 @@ import Vue from "vue";
 const _import = require("./_import_" + process.env.NODE_ENV);
 
 import Router from "vue-router";
-import Home from "@/views/Home.vue";
 import Layout from "@/components/Layout/Layout.vue";
 // import about from "./views/About.vue";
 

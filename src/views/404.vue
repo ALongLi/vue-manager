@@ -4,6 +4,7 @@
       4
       <span>0</span>4
     </div>
+    {{$store.state.collapse}}
     <div class="error-desc">啊哦~ 你所访问的页面不存在</div>
     <div class="error-handle">
       <!-- <router-link to="/">

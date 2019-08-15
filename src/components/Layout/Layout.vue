@@ -1,10 +1,9 @@
 <template>
-  <div class="wrapper">
+  <div class="wrapper" :class="classObj">
     <Sidebar></Sidebar>
     <div class="content-box" :class="{ 'content-collapse': collapse }">
       <Header></Header>
       <!-- <v-tags></v-tags> -->
-      <Tags></Tags>
       <div class="content">
         <transition name="fade-transform" mode="out-in">
           <keep-alive :include="tagsList">
@@ -19,20 +18,35 @@
 <script>
 import Header from "./components/Header.vue";
 import Sidebar from "./components/Sidebar.vue";
-import Tags from "./components/Tags.vue";
 export default {
   data() {
     return {
-      tagsList: ["basetable"],
-      collapse: false
+      tagsList: ["basetable"]
+      //   collapse: true
     };
   },
   components: {
     Header,
-    Sidebar,
-    Tags
+    Sidebar
   },
-  created() {}
+  computed: {
+    classObj() {
+      return {
+        hideSidebar: this.$store.state.collapse,
+        openSidebar: !this.$store.state.collapse
+      };
+    },
+    collapse() {
+      return this.$store.state.collapse;
+    }
+  },
+
+  created() {},
+  mounted() {
+    this.$bus.$on("toggleSidebar", function(isCollapse) {
+      this.collapse = isCollapse;
+    });
+  }
 };
 </script>
 

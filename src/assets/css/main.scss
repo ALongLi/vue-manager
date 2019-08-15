@@ -39,15 +39,12 @@ a {
 }
 .content-box {
   position: absolute;
-  left: 200px;
+  left: 210px;
   right: 0;
-  top: 70px;
-  bottom: 0;
-  // padding-bottom: 30px;
-  -webkit-transition: left 0.3s ease-in-out;
+  top: 0;
   transition: left 0.3s ease-in-out;
   background: #f0f0f0;
-  // background-color: #184064
+  height: 100vh;
 }
 .content {
   width: auto;
@@ -69,35 +66,7 @@ a {
   border-radius: 5px;
   height: calc(100% - 33px);
 }
-.crumbs {
-  margin: 10px 0;
-}
-.mr10 {
-  margin-right: 10px;
-}
-.pagination {
-  margin: 20px 0;
-  text-align: right;
-}
-.plugins-tips {
-  padding: 20px 10px;
-  margin-bottom: 20px;
-}
-.el-button {
-  & + .el-tooltip {
-    margin-left: 10px;
-  }
-}
-.el-table {
-  tr {
-    &:hover {
-      background: #f6faff;
-    }
-  }
-}
-.mgb20 {
-  margin-bottom: 20px;
-}
+
 .move-enter-active,
 .move-leave-active {
   transition: opacity 0.5s;
@@ -106,11 +75,7 @@ a {
 .move-leave {
   opacity: 0;
 }
-.g-core-image-corp-container {
-  .info-aside {
-    height: 45px;
-  }
-}
+
 .fl {
   float: left !important;
 }
@@ -133,11 +98,4 @@ a {
   box-shadow: inset 0 0 5px rgba(146, 138, 138, 0.2);
   border-radius: 10px;
   background: #ededed;
-}
-.mr28 {
-  margin-right: 28px;
-}
-.handle-box {
-  margin-bottom: 20px;
-  float: right;
 }
