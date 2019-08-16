@@ -1,15 +1,17 @@
 <template>
   <el-submenu v-if="item.children.length" :index="item.funcId">
     <template slot="title">
-      <!-- {{ item.label }} -->
-      <i class="el-icon-location"></i>
+      <i v-if="item.icon" class="icon iconfont el-icon-" :class="item.icon"></i>
       <span>{{ item.label }}</span>
     </template>
     <template v-for="(m, i) in item.children">
       <sidebar-item :key="i" :item="m" class="nest-menu" />
     </template>
   </el-submenu>
-  <el-menu-item :index="item.href" v-else @click="clickRouter(item)">{{ item.label }}</el-menu-item>
+  <el-menu-item :index="item.href" v-else @click="clickRouter(item)">
+    <i v-if="item.icon" class="icon iconfont el-icon-" :class="item.icon"></i>
+    <span>{{ item.label }}</span>
+  </el-menu-item>
 </template>
 <script>
 export default {

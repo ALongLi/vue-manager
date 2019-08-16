@@ -1,3 +1,6 @@
+// @import "global.scss";
+// @import "mixin.scss";
+// @import "./transition.scss";
 $theme-color: #3385ff;
 $blue: #3db9e0;
 $white: #fff;
@@ -16,6 +19,7 @@ $subMenuHover: #001528;
 
 $sideBarWidth: 210px;
 
+// 导出变量
 :export {
   menuText: $menuText;
   menuActiveText: $menuActiveText;

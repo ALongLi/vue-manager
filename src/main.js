@@ -9,6 +9,8 @@ import NProgress from "nprogress";
 import "nprogress/nprogress.css";
 import "element-ui/lib/theme-chalk/index.css"; // 默认主题
 import "normalize.css/normalize.css"; // a modern alternative to CSS resets
+import "./assets/font/iconfont.css";
+import "./assets/css/icon.css";
 import * as filters from "./filters"; // global filters
 
 Vue.config.productionTip = false;
@@ -19,6 +21,19 @@ Vue.use(ElementUI, {
 Object.keys(filters).forEach(key => {
   Vue.filter(key, filters[key]);
 });
+
+const context = require.context("./directives", true, /^((?!demo\.js).)+\.js$/);
+try {
+  context.keys().forEach(path => {
+    let res = context(path);
+    // 导出指令对象，并且存在指令名称，全局注册，否则不注册，自行引入注册
+    if (res.default && res.default.name) {
+      Vue.directive(res.default.name, res.default);
+    }
+  });
+} catch (e) {
+  // console.log(e);
+}
 Vue.prototype.$axios = axios;
 Vue.prototype.$bus = new Vue();
 Vue.prototype.$echarts = echarts;
@@ -35,14 +50,12 @@ NProgress.configure({
   trickleSpeed: 200, // 自动递增间隔
   minimum: 0.3 // 初始化时的最小百分比
 });
-// const token = Cookies.get('token');
 // 使用钩子函数对路由进行权限跳转
 router.beforeEach((to, _from, next) => {
   // 每次切换页面时，调用进度条
   NProgress.start();
   next();
 });
-
 //当路由进入后：关闭进度条
 router.afterEach(() => {
   // 在即将进入新的页面组件前，关闭掉进度条

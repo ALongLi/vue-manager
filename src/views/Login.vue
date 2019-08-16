@@ -4,7 +4,7 @@
       <!-- <div class="ms-title">后台管理系统</div> -->
       <el-form class="ms-content" ref="ruleForm" label-width="0px" :model="ruleForm" :rules="rules">
         <div class="inputBox">
-          <img src="../assets/img/login_account_icon.png" alt />
+          <img src="@/assets/img/login_account_icon.png" alt />
           <el-form-item prop="username">
             <!-- <el-input class="custom-input" v-model="ruleForm.username" placeholder="username" autocomplete="off"></el-input> -->
             <div class="custom-input el-input el-input--small">

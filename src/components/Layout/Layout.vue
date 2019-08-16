@@ -3,8 +3,8 @@
     <Sidebar></Sidebar>
     <div class="content-box" :class="{ 'content-collapse': collapse }">
       <Header class="header"></Header>
-      <!-- <v-tags></v-tags> -->
       <div class="content">
+        <!-- 路由内容区域 -->
         <transition name="fade-transform" mode="out-in">
           <keep-alive :include="tagsList">
             <router-view></router-view>
@@ -43,9 +43,9 @@ export default {
 
   created() {},
   mounted() {
-    this.$bus.$on("toggleSidebar", function(isCollapse) {
-      this.collapse = isCollapse;
-    });
+    // this.$bus.$on("toggleSidebar", function(isCollapse) {
+    //   this.collapse = isCollapse;
+    // });
   }
 };
 </script>

@@ -1,9 +1,10 @@
 import Vue from "vue";
+// 区分开发与生产路由加载方式
 const _import = require("./_import_" + process.env.NODE_ENV);
 
 import Router from "vue-router";
 import Layout from "@/components/Layout/Layout.vue";
-// import about from "./views/About.vue";
+import nestedRouter from "./modules/nested";
 
 Vue.use(Router);
 
@@ -78,6 +79,20 @@ export default new Router({
         }
       ]
     },
+    {
+      path: "/components",
+      component: Layout,
+      redirect: "",
+      children: [
+        {
+          path: "drag-dialog",
+          component: _import("components-demo/drag-dialog"),
+          name: "DragDialogDemo",
+          meta: { title: "Drag Dialog" }
+        }
+      ]
+    },
+    nestedRouter,
     {
       path: "/login",
       name: "login",
