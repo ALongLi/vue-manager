@@ -1,7 +1,25 @@
 {
   "name": "vue-manager",
   "version": "0.1.0",
-  "private": true,
+  "private": false,
+  "description": "A manager system of vue. Lots of awesome features",
+  "author": "fillter",
+  "email": "fillter@foxmail.com",
+  "license": "MIT",
+  "keywords": [
+    "vue",
+    "admin",
+    "element-ui",
+    "admin-template",
+    "management-system"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ALongLi/vue-manager.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ALongLi/vue-manager/issues"
+  },
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
