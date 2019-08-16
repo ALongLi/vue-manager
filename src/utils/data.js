@@ -4,7 +4,7 @@ const menuList = [
     description: "",
     funcId: "bfunc10",
     href: "/home",
-    icon: "icon-data_icon1",
+    icon: "iconshouye",
     label: "首页",
     type: null
   },
@@ -22,7 +22,7 @@ const menuList = [
     description: "",
     funcId: "bfunc110",
     href: "",
-    icon: "icon-data_icon1",
+    icon: "iconzujian",
     label: "组件",
     type: null
   },
@@ -41,7 +41,7 @@ const menuList = [
     description: "",
     funcId: "bfunc10",
     href: "",
-    icon: "icon-data_icon1",
+    icon: "iconshezhi",
     label: "系统设置",
     type: null
   },
@@ -105,7 +105,7 @@ const menuList = [
     description: "",
     funcId: "bfunc40",
     href: "",
-    icon: "icon-set_icon",
+    icon: "iconcaidan",
     label: "多级菜单",
     type: null
   }

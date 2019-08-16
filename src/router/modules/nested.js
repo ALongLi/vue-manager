@@ -10,7 +10,7 @@ const nestedRouter = {
   redirect: "/nested/menu1/menu1-1",
   name: "Nested",
   meta: {
-    title: "Nested Routes",
+    title: "嵌套路由",
     icon: "nested"
   },
   children: [
@@ -18,33 +18,33 @@ const nestedRouter = {
       path: "menu1",
       component: _import("nested/menu1/index"), // Parent router-view
       name: "Menu1",
-      meta: { title: "Menu 1" },
+      meta: { title: "菜单1" },
       redirect: "/nested/menu1/menu1-1",
       children: [
         {
           path: "menu1-1",
           component: _import("nested/menu1/menu1-1/index"),
           name: "Menu1-1",
-          meta: { title: "Menu 1-1" }
+          meta: { title: "菜单1-1" }
         },
         {
           path: "menu1-2",
           component: _import("nested/menu1/menu1-2/index"),
           name: "Menu1-2",
           redirect: "/nested/menu1/menu1-2/menu1-2-1",
-          meta: { title: "Menu 1-2" },
+          meta: { title: "菜单1-2" },
           children: [
             {
               path: "menu1-2-1",
               component: _import("nested/menu1/menu1-2/menu1-2-1/index"),
               name: "Menu1-2-1",
-              meta: { title: "Menu 1-2-1" }
+              meta: { title: "菜单1-2-1" }
             },
             {
               path: "menu1-2-2",
               component: _import("nested/menu1/menu1-2/menu1-2-2/index"),
               name: "Menu1-2-2",
-              meta: { title: "Menu 1-2-2" }
+              meta: { title: "菜单1-2-2" }
             }
           ]
         }
@@ -54,7 +54,7 @@ const nestedRouter = {
       path: "menu2",
       name: "Menu2",
       component: _import("nested/menu2/index"),
-      meta: { title: "Menu 2" }
+      meta: { title: "菜单2" }
     }
   ]
 };

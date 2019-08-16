@@ -41,7 +41,10 @@ export default new Router({
         {
           path: "/404",
           name: "404",
-          component: _import("404")
+          component: _import("404"),
+          meta: {
+            title: "404"
+          }
         },
         {
           path: "/home",
@@ -75,7 +78,10 @@ export default new Router({
         {
           path: "user",
           component: _import("User"),
-          name: "user"
+          name: "user",
+          meta: {
+            title: "用户设置"
+          }
         }
       ]
     },

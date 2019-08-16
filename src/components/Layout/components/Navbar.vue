@@ -1,6 +1,7 @@
 <template>
   <div class="clearfix">
     <Hamburger></Hamburger>
+    <Breadcrumb></Breadcrumb>
     <div class="header-right">
       <div class="header-user-con">
         <div class="btn-fullscreen" @click="handleFullScreen">
@@ -28,13 +29,15 @@
 </template>
 <script>
 import Hamburger from "./Hamburger/Hamburger.vue";
+import Breadcrumb from "./Breadcrumb/index.vue";
 
 export default {
   data() {
     return { fullscreen: false, username: "" };
   },
   components: {
-    Hamburger
+    Hamburger,
+    Breadcrumb
   },
   methods: {
     // 用户名下拉菜单选择事件
