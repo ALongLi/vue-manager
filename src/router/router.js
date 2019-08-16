@@ -95,6 +95,12 @@ export default new Router({
           component: _import("components-demo/drag-dialog"),
           name: "DragDialogDemo",
           meta: { title: "Drag Dialog" }
+        },
+        {
+          path: "click-outside",
+          component: _import("components-demo/click-outside"),
+          name: "clickOutsideDemo",
+          meta: { title: "clickOutside" }
         }
       ]
     },

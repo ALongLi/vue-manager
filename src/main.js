@@ -37,7 +37,7 @@ try {
 Vue.prototype.$axios = axios;
 Vue.prototype.$bus = new Vue();
 Vue.prototype.$echarts = echarts;
-new Vue({
+let vm = new Vue({
   router,
   store,
   render: h => h(App)
@@ -61,3 +61,4 @@ router.afterEach(() => {
   // 在即将进入新的页面组件前，关闭掉进度条
   NProgress.done();
 });
+console.log(vm);

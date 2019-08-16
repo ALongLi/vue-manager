@@ -17,6 +17,14 @@ const menuList = [
         href: "/components/drag-dialog",
         icon: "",
         label: "拖拽弹框"
+      },
+      {
+        children: [],
+        description: "",
+        funcId: "components1004",
+        href: "/components/click-outside",
+        icon: "",
+        label: "clickOutside"
       }
     ],
     description: "",
