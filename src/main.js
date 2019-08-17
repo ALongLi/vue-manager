@@ -37,11 +37,6 @@ try {
 Vue.prototype.$axios = axios;
 Vue.prototype.$bus = new Vue();
 Vue.prototype.$echarts = echarts;
-let vm = new Vue({
-  router,
-  store,
-  render: h => h(App)
-}).$mount("#app");
 
 NProgress.configure({
   easing: "ease", // 动画方式
@@ -51,14 +46,34 @@ NProgress.configure({
   minimum: 0.3 // 初始化时的最小百分比
 });
 // 使用钩子函数对路由进行权限跳转
-router.beforeEach((to, _from, next) => {
-  // 每次切换页面时，调用进度条
-  NProgress.start();
-  next();
+router.beforeEach(async (to, _from, next) => {
+  if (!store.state.hasPermission) {
+    // 如果没权限 需要获取权限
+    // 获取需要添加的路由
+    let newRoutes = await store.dispatch("getNewRoute");
+    // 动态添加路由
+    // 404在这添加不然刷新页面会到404
+    newRoutes.push({
+      path: "*",
+      redirect: "/404"
+    });
+    router.addRoutes(newRoutes); // 动态添加我需要的路由
+    next({ ...to }, { replace: true }); // replaceState
+  } else {
+    // 每次切换页面时，调用进度条
+    NProgress.start();
+    next();
+  }
+  // next();
 });
 //当路由进入后：关闭进度条
 router.afterEach(() => {
   // 在即将进入新的页面组件前，关闭掉进度条
   NProgress.done();
 });
-console.log(vm);
+
+new Vue({
+  router,
+  store,
+  render: h => h(App)
+}).$mount("#app");

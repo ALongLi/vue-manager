@@ -52,21 +52,11 @@
     "eslint-plugin-vue": "^5.0.0",
     "husky": "^3.0.3",
     "lint-staged": "^9.2.1",
+    "mocker-api": "^1.7.9",
     "node-sass": "^4.9.0",
     "prettier": "^1.18.2",
     "sass-loader": "^7.1.0",
     "vue-template-compiler": "^2.6.10"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
-  },
-  "lint-staged": {
-    "src/**/*.{js,vue}": [
-      "eslint --fix",
-      "git add"
-    ]
   },
   "eslintConfig": {
     "root": true,

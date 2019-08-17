@@ -55,7 +55,7 @@ export default {
   data: function() {
     return {
       ruleForm: {
-        username: "sysmanager",
+        username: "admin",
         password: "123456"
       },
       rules: {
@@ -73,7 +73,24 @@ export default {
           localStorage.setItem("ms_username", this.ruleForm.username);
           Cookie.set("ms_username", this.ruleForm.username);
           sessionStorage.setItem("ms_username", this.ruleForm.username);
-          this.$router.push("/");
+          this.$axios
+            .post(
+              "api/public/login",
+              {
+                username: this.ruleForm.username,
+                password: this.ruleForm.password
+              },
+              {
+                showLoading: true
+              }
+            )
+            .then(response => {
+              sessionStorage.setItem("token", response.data.token);
+              sessionStorage.setItem("flag", true);
+              Cookie.set("token", response.data.token);
+              this.$router.push("/");
+            })
+            .catch(function() {});
         } else {
           return false;
         }

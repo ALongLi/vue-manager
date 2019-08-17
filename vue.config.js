@@ -1,6 +1,18 @@
+const path = require("path");
+const apiMocker = require("mocker-api");
+function resolve(dir) {
+  console.log(__dirname);
+  return path.join(__dirname, dir);
+}
 module.exports = {
   baseUrl: "./",
   productionSourceMap: false,
+  chainWebpack: config => {
+    config.resolve.alias
+      .set("@mock", resolve("mock"))
+      .set("@assets", resolve("src/assets"));
+    // 这里只写了两个个，你可以自己再加，按这种格式.set('', resolve(''))
+  },
   css: {
     loaderOptions: {
       sass: {
@@ -21,6 +33,9 @@ module.exports = {
           "/api": "/api"
         }
       }
+    },
+    before(app) {
+      apiMocker(app, path.resolve("./mock/index.js"));
     }
   }
 };

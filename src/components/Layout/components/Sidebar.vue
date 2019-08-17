@@ -22,15 +22,12 @@
 <script>
 import variables from "@/assets/css/_variable.scss";
 import SidebarItem from "./SidebarItem.vue";
-import { menuList } from "@/utils/data.js";
 
 export default {
   data() {
     return {
       variables,
-      showLogo: true,
-      menuList: menuList
-      // isCollapse: true
+      showLogo: true
     };
   },
   components: {
@@ -42,12 +39,15 @@ export default {
     },
     onRoutes() {
       return this.$route.fullPath;
+    },
+    menuList() {
+      return this.$store.state.menuList;
     }
   },
   mounted() {
-    this.$bus.$on("toggleSidebar", function(isCollapse) {
-      this.isCollapse = isCollapse;
-    });
+    // this.$bus.$on("toggleSidebar", function(isCollapse) {
+    //   this.isCollapse = isCollapse;
+    // });
   }
 };
 </script>

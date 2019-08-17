@@ -19,6 +19,16 @@ export default {
   name: "home",
   components: {
     HelloWorld
+  },
+  mounted() {
+    // this.$axios
+    //   .get("menuList")
+    //   .then(res => {
+    //     // this.goodsList = res.data.result;
+    //   })
+    //   .catch(error => {
+    //     console.log(error);
+    //   });
   }
 };
 </script>

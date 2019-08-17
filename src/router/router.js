@@ -5,8 +5,17 @@ const _import = require("./_import_" + process.env.NODE_ENV);
 import Router from "vue-router";
 import Layout from "@/components/Layout/Layout.vue";
 import nestedRouter from "./modules/nested";
+import componentsRouter from "./modules/components";
+import settingRouter from "./modules/setting";
 
 Vue.use(Router);
+
+export const authRoutes = [
+  // 权限路由
+  nestedRouter,
+  componentsRouter,
+  settingRouter
+];
 
 export default new Router({
   routes: [
@@ -39,80 +48,32 @@ export default new Router({
       redirect: "/home",
       children: [
         {
-          path: "/404",
-          name: "404",
-          component: _import("404"),
-          meta: {
-            title: "404"
-          }
-        },
-        {
           path: "/home",
           component: _import("Home"),
           name: "home"
-        },
-        {
-          path: "/appAnalysis",
-          component: _import("Home"),
-          name: "appAnalysis"
         }
       ]
     },
+
+    // nestedRouter,
+    // componentsRouter,
+    // settingRouter,
     {
-      path: "/user",
-      component: Layout,
-      // redirect: "",
-      children: [
-        {
-          path: "userAnalysis",
-          component: _import("Home2"),
-          name: "userAnalysis"
-        }
-      ]
+      path: "/404",
+      name: "404",
+      component: _import("404"),
+      meta: {
+        title: "404"
+      }
     },
-    {
-      path: "/setting",
-      component: Layout,
-      redirect: "",
-      children: [
-        {
-          path: "user",
-          component: _import("User"),
-          name: "user",
-          meta: {
-            title: "用户设置"
-          }
-        }
-      ]
-    },
-    {
-      path: "/components",
-      component: Layout,
-      redirect: "",
-      children: [
-        {
-          path: "drag-dialog",
-          component: _import("components-demo/drag-dialog"),
-          name: "DragDialogDemo",
-          meta: { title: "Drag Dialog" }
-        },
-        {
-          path: "click-outside",
-          component: _import("components-demo/click-outside"),
-          name: "clickOutsideDemo",
-          meta: { title: "clickOutside" }
-        }
-      ]
-    },
-    nestedRouter,
     {
       path: "/login",
       name: "login",
       component: _import("Login")
-    },
-    {
-      path: "*",
-      redirect: "/404"
     }
+    // {
+    //   path: "*",
+    //   redirect: "/404"
+    // }
   ]
 });
