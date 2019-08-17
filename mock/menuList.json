@@ -116,5 +116,23 @@
         "icon": "iconcaidan",
         "label": "多级菜单",
         "type": null
+    },
+    {
+        "children": [
+            {
+                "children": [],
+                "description": "",
+                "funcId": "bfunc40021",
+                "href": "/mock/table",
+                "icon": "",
+                "label": "表格"
+            }
+        ],
+        "description": "",
+        "funcId": "bfunc401",
+        "href": "",
+        "icon": "iconcaidan",
+        "label": "mock数据",
+        "type": null
     }
 ]

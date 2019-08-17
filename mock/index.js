@@ -1,15 +1,16 @@
 const menuList = require("./menuList.json");
+const table = require("./table.js");
+// import table from "./table.js";
 
 const proxy = {
   "GET /menuList": menuList,
-  "GET /api/user": { id: 1, username: "kenny", sex: 6 },
+  "GET /api/table": table,
   "GET /api/user/list": [
     { id: 1, username: "kenny", sex: 6 },
     { id: 2, username: "kenny", sex: 6 }
   ],
   "POST /api/public/login": (req, res) => {
     const { password, username } = req.body;
-    console.log(req.body);
     if (password === "123456" && username === "admin") {
       return res.send({
         status: "ok",

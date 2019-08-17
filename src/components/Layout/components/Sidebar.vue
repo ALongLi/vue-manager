@@ -121,7 +121,12 @@ export default {
   .is-active > .el-submenu__title {
     color: $subMenuActiveText !important;
   }
-
+  .el-submenu__title,
+  .el-menu-item {
+    & i {
+      color: inherit;
+    }
+  }
   & .nest-menu .el-submenu > .el-submenu__title,
   & .el-submenu .el-menu-item {
     min-width: $sideBarWidth !important;

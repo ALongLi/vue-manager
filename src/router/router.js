@@ -7,6 +7,7 @@ import Layout from "@/components/Layout/Layout.vue";
 import nestedRouter from "./modules/nested";
 import componentsRouter from "./modules/components";
 import settingRouter from "./modules/setting";
+import mockRouter from "./modules/mock";
 
 Vue.use(Router);
 
@@ -58,6 +59,7 @@ export default new Router({
     // nestedRouter,
     // componentsRouter,
     // settingRouter,
+    mockRouter,
     {
       path: "/404",
       name: "404",

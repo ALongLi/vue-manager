@@ -53,6 +53,7 @@
     "husky": "^3.0.3",
     "lint-staged": "^9.2.1",
     "mocker-api": "^1.7.9",
+    "mockjs": "^1.0.1-beta3",
     "node-sass": "^4.9.0",
     "prettier": "^1.18.2",
     "sass-loader": "^7.1.0",

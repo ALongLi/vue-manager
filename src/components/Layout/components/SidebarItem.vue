@@ -2,7 +2,7 @@
   <el-submenu v-if="item.children.length" :index="item.funcId">
     <template slot="title">
       <i v-if="item.icon" class="icon iconfont el-icon-" :class="item.icon"></i>
-      <span>{{ item.label }}</span>
+      <span slot="title">{{ item.label }}</span>
     </template>
     <template v-for="(m, i) in item.children">
       <sidebar-item :key="i" :item="m" class="nest-menu" />
@@ -10,7 +10,7 @@
   </el-submenu>
   <el-menu-item :index="item.href" v-else @click="clickRouter(item)">
     <i v-if="item.icon" class="icon iconfont el-icon-" :class="item.icon"></i>
-    <span>{{ item.label }}</span>
+    <span slot="title">{{ item.label }}</span>
   </el-menu-item>
 </template>
 <script>
