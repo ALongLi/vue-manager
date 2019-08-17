@@ -26,18 +26,18 @@
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
-    "core-js": "^2.6.5",
     "axios": "^0.18.0",
     "babel-polyfill": "^6.26.0",
+    "core-js": "^2.6.5",
+    "dayjs": "^1.8.15",
     "echarts": "^4.1.0",
-    "normalize.css": "7.0.0",
     "element-ui": "^2.11.1",
     "js-cookie": "^2.2.0",
     "lodash": "^4.17.15",
+    "normalize.css": "7.0.0",
     "nprogress": "^0.2.0",
-    "vue-count-to": "^1.0.13",
-    "dayjs": "^1.8.15",
     "vue": "^2.6.10",
+    "vue-count-to": "^1.0.13",
     "vue-router": "^3.0.3",
     "vuex": "^3.0.1"
   },
@@ -50,10 +50,23 @@
     "eslint": "^5.16.0",
     "eslint-plugin-prettier": "^3.1.0",
     "eslint-plugin-vue": "^5.0.0",
+    "husky": "^3.0.3",
+    "lint-staged": "^9.2.1",
     "node-sass": "^4.9.0",
     "prettier": "^1.18.2",
     "sass-loader": "^7.1.0",
     "vue-template-compiler": "^2.6.10"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "src/**/*.{js,vue}": [
+      "eslint --fix",
+      "git add"
+    ]
   },
   "eslintConfig": {
     "root": true,
