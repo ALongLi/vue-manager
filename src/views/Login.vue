@@ -51,6 +51,7 @@
 
 <script>
 import Cookie from "js-cookie";
+import fetch from "@/fetch";
 export default {
   data: function() {
     return {
@@ -68,29 +69,18 @@ export default {
   },
   methods: {
     submitForm(formName) {
-      this.$refs[formName].validate(valid => {
+      this.$refs[formName].validate(async valid => {
         if (valid) {
           localStorage.setItem("ms_username", this.ruleForm.username);
           Cookie.set("ms_username", this.ruleForm.username);
           sessionStorage.setItem("ms_username", this.ruleForm.username);
-          this.$axios
-            .post(
-              "api/public/login",
-              {
-                username: this.ruleForm.username,
-                password: this.ruleForm.password
-              },
-              {
-                showLoading: true
-              }
-            )
-            .then(response => {
-              sessionStorage.setItem("token", response.data.token);
-              sessionStorage.setItem("flag", true);
-              Cookie.set("token", response.data.token);
-              this.$router.push("/");
-            })
-            .catch(function() {});
+          const { token } = await fetch.login({
+            username: this.ruleForm.username,
+            password: this.ruleForm.password
+          });
+          sessionStorage.setItem("token", token);
+          Cookie.set("token", token);
+          this.$router.push("/");
         } else {
           return false;
         }
