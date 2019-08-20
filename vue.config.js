@@ -1,11 +1,11 @@
 const path = require("path");
+const FileManagerPlugin = require("filemanager-webpack-plugin");
 const apiMocker = require("mocker-api");
 function resolve(dir) {
-  console.log(__dirname);
   return path.join(__dirname, dir);
 }
 module.exports = {
-  baseUrl: "./",
+  publicPath: "./",
   productionSourceMap: false,
   chainWebpack: config => {
     config.resolve.alias
@@ -21,6 +21,15 @@ module.exports = {
         `
       }
     }
+  },
+  configureWebpack: {
+    plugins: [
+      new FileManagerPlugin({
+        onEnd: {
+          archive: [{ source: "./dist", destination: "./dist/dist.zip" }]
+        }
+      })
+    ]
   },
   devServer: {
     open: true,
