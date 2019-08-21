@@ -130,9 +130,10 @@ a {
 }
 .content {
   width: auto;
-  height: 100%;
+  height: calc(100% - 54px);
   padding: 10px;
   overflow: auto;
+  overflow-x: hidden;
   box-sizing: border-box;
 }
 .content-collapse {

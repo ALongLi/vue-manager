@@ -5,7 +5,7 @@
     <div class="header-right">
       <div class="header-user-con">
         <div class="btn-fullscreen" @click="handleFullScreen">
-          <el-tooltip effect="dark" :content="fullscreen?`取消全屏`:`全屏`" placement="bottom">
+          <el-tooltip effect="dark" :content="fullscreen ? `取消全屏` : `全屏`" placement="bottom">
             <i class="el-icon-rank"></i>
           </el-tooltip>
         </div>
@@ -15,8 +15,11 @@
         </div>
         <!-- 用户名下拉菜单 -->
         <el-dropdown class="user-name" trigger="click" @command="handleCommand">
+          <!-- <div class="user-avator">
+            <img src="../../../assets/img/admin_user.png" />
+          </div>-->
           <span class="el-dropdown-link">
-            {{username}}
+            {{ username }}
             <i class="el-icon-caret-bottom"></i>
           </span>
           <el-dropdown-menu slot="dropdown">
