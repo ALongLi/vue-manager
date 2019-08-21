@@ -1,51 +1,6 @@
 <template>
   <div class="login">
     <main class="num_rain"></main>
-    <!-- <div class="login-wrap">
-      <div class="ms-login">
-        <el-form
-          class="ms-content"
-          ref="ruleForm"
-          label-width="0px"
-          :model="ruleForm"
-          :rules="rules"
-        >
-          <div class="inputBox">
-            <img src="@/assets/img/login_account_icon.png" alt />
-            <el-form-item prop="username">
-              <div class="custom-input el-input el-input--small">
-                <input
-                  type="text"
-                  autocomplete="off"
-                  v-model="ruleForm.username"
-                  placeholder="请输入用户名"
-                  class="el-input__inner"
-                />
-              </div>
-            </el-form-item>
-          </div>
-          <div class="inputBox">
-            <img src="../assets/img/login_psd_icon.png" alt />
-            <el-form-item prop="password">
-              <div class="custom-input el-input el-input--small">
-                <input
-                  type="password"
-                  autocomplete="off"
-                  v-model="ruleForm.password"
-                  placeholder="请输入密码"
-                  class="el-input__inner"
-                  @keyup.enter="submitForm('ruleForm')"
-                />
-              </div>
-            </el-form-item>
-          </div>
-
-          <div class="login-btn">
-            <span @click="submitForm('ruleForm')">登录</span>
-          </div>
-        </el-form>
-      </div>
-    </div>-->
     <div class="ms-login">
       <el-form class="ms-content" ref="ruleForm" label-width="0px" :model="ruleForm" :rules="rules">
         <div class="inputBox">
@@ -326,11 +281,6 @@ input::-webkit-input-placeholder {
   line-height: 40px;
   margin-bottom: 10px;
   cursor: pointer;
-  color: #fff;
-}
-.login-tips {
-  font-size: 12px;
-  line-height: 30px;
   color: #fff;
 }
 </style>
