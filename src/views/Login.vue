@@ -1,12 +1,56 @@
 <template>
-  <div class="login-wrap">
+  <div class="login">
+    <main class="num_rain"></main>
+    <!-- <div class="login-wrap">
+      <div class="ms-login">
+        <el-form
+          class="ms-content"
+          ref="ruleForm"
+          label-width="0px"
+          :model="ruleForm"
+          :rules="rules"
+        >
+          <div class="inputBox">
+            <img src="@/assets/img/login_account_icon.png" alt />
+            <el-form-item prop="username">
+              <div class="custom-input el-input el-input--small">
+                <input
+                  type="text"
+                  autocomplete="off"
+                  v-model="ruleForm.username"
+                  placeholder="请输入用户名"
+                  class="el-input__inner"
+                />
+              </div>
+            </el-form-item>
+          </div>
+          <div class="inputBox">
+            <img src="../assets/img/login_psd_icon.png" alt />
+            <el-form-item prop="password">
+              <div class="custom-input el-input el-input--small">
+                <input
+                  type="password"
+                  autocomplete="off"
+                  v-model="ruleForm.password"
+                  placeholder="请输入密码"
+                  class="el-input__inner"
+                  @keyup.enter="submitForm('ruleForm')"
+                />
+              </div>
+            </el-form-item>
+          </div>
+
+          <div class="login-btn">
+            <span @click="submitForm('ruleForm')">登录</span>
+          </div>
+        </el-form>
+      </div>
+    </div>-->
     <div class="ms-login">
-      <!-- <div class="ms-title">后台管理系统</div> -->
       <el-form class="ms-content" ref="ruleForm" label-width="0px" :model="ruleForm" :rules="rules">
         <div class="inputBox">
           <img src="@/assets/img/login_account_icon.png" alt />
           <el-form-item prop="username">
-            <!-- <el-input class="custom-input" v-model="ruleForm.username" placeholder="username" autocomplete="off"></el-input> -->
             <div class="custom-input el-input el-input--small">
               <input
                 type="text"
@@ -21,7 +65,6 @@
         <div class="inputBox">
           <img src="../assets/img/login_psd_icon.png" alt />
           <el-form-item prop="password">
-            <!-- <el-input class="custom-input" v-model="ruleForm.username" placeholder="username" autocomplete="off"></el-input> -->
             <div class="custom-input el-input el-input--small">
               <input
                 type="password"
@@ -34,15 +77,9 @@
             </div>
           </el-form-item>
         </div>
-        <!-- <el-input
-            type="password"
-            placeholder="password"
-            v-model="ruleForm.password"
-            @keyup.enter.native="submitForm('ruleForm')"
-        ></el-input>-->
+
         <div class="login-btn">
           <span @click="submitForm('ruleForm')">登录</span>
-          <!-- <el-button type="primary" @click="submitForm('ruleForm')">登录</el-button> -->
         </div>
       </el-form>
     </div>
@@ -87,25 +124,145 @@ export default {
       });
     }
   },
-  mounted() {}
+  mounted() {
+    function r(from, to) {
+      return ~~(Math.random() * (to - from + 1) + from);
+    }
+    function pick() {
+      return arguments[r(0, arguments.length - 1)];
+    }
+    function getChar() {
+      return String.fromCharCode(
+        pick(r(0x3041, 0x30ff), r(0x2000, 0x206f), r(0x0020, 0x003f))
+      );
+    }
+    function loop(fn, delay) {
+      let stamp = Date.now();
+      function _loop() {
+        if (Date.now() - stamp >= delay) {
+          fn();
+          stamp = Date.now();
+        }
+        requestAnimationFrame(_loop);
+      }
+      requestAnimationFrame(_loop);
+    }
+    class Char {
+      constructor() {
+        this.element = document.createElement("span");
+        this.mutate();
+      }
+      mutate() {
+        this.element.textContent = getChar();
+      }
+    }
+    class Trail {
+      constructor(list = [], options) {
+        this.list = list;
+        this.options = Object.assign({ size: 10, offset: 0 }, options);
+        this.body = [];
+        this.move();
+      }
+      traverse(fn) {
+        this.body.forEach((n, i) => {
+          let last = i == this.body.length - 1;
+          if (n) fn(n, i, last);
+        });
+      }
+      move() {
+        this.body = [];
+        let { offset, size } = this.options;
+        for (let i = 0; i < size; ++i) {
+          let item = this.list[offset + i - size + 1];
+          this.body.push(item);
+        }
+        this.options.offset = (offset + 1) % (this.list.length + size - 1);
+      }
+    }
+    class Rain {
+      constructor({ target, row }) {
+        this.element = document.createElement("p");
+        this.build(row);
+        if (target) {
+          target.appendChild(this.element);
+        }
+        this.drop();
+      }
+      build(row = 20) {
+        let root = document.createDocumentFragment();
+        let chars = [];
+        for (let i = 0; i < row; ++i) {
+          let c = new Char();
+          root.appendChild(c.element);
+          chars.push(c);
+          if (Math.random() < 0.5) {
+            loop(() => c.mutate(), r(1e3, 5e3));
+          }
+        }
+        this.trail = new Trail(chars, {
+          size: r(10, 30),
+          offset: r(0, 100)
+        });
+        this.element.appendChild(root);
+      }
+      drop() {
+        let trail = this.trail;
+        let len = trail.body.length;
+        let delay = r(10, 100);
+        loop(() => {
+          trail.move();
+          trail.traverse((c, i, last) => {
+            c.element.style = `
+          color: hsl(136, 100%, ${(85 / len) * (i + 1)}%)
+        `;
+            if (last) {
+              c.mutate();
+              c.element.style = `
+            color: hsl(136, 100%, 85%);
+            text-shadow:
+              0 0 .5em #fff,
+              0 0 .5em currentColor;
+          `;
+            }
+          });
+        }, delay);
+      }
+    }
+
+    const main = document.querySelector("main");
+    for (let i = 0; i < 50; ++i) {
+      new Rain({ target: main, row: 50 });
+    }
+  }
 };
 </script>
 
 <style scoped>
-.login-wrap {
-  position: relative;
-  width: 100%;
+.login {
   height: 100%;
-  background-image: url(../assets/img/login_bg.png);
-  background-size: 100%;
+  align-items: center;
+  justify-content: center;
+  background: #000;
 }
-.ms-title {
-  width: 100%;
-  line-height: 50px;
+.num_rain {
+  display: flex !important;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+  background: #000;
+}
+.login .num_rain >>> p {
+  line-height: 1;
+  height: 100%;
+}
+.login .num_rain >>> span {
+  display: block;
+  width: 2vmax;
+  height: 2vmax;
+  font-size: 2vmax;
+  color: #9bff9b11;
   text-align: center;
-  font-size: 20px;
-  color: #fff;
-  border-bottom: 1px solid #ddd;
+  font-family: "Helvetica Neue", Helvetica, sans-serif;
 }
 .ms-login {
   position: absolute;
