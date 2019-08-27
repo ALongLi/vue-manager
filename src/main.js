@@ -27,7 +27,7 @@ try {
   context.keys().forEach(path => {
     let res = context(path);
     // 导出指令对象，并且存在指令名称，全局注册，否则不注册，自行引入注册
-    if (res.default && res.default.name) {
+    if (res.default.name) {
       Vue.directive(res.default.name, res.default);
     }
   });

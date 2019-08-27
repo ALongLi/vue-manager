@@ -1,6 +1,5 @@
 <template>
-  <div class="sidebar-container" :class="{ 'has-logo': showLogo }">
-    <logo v-if="showLogo" :collapse="isCollapse" />
+  <div class="sidebar-container">
     <el-scrollbar wrap-class="scrollbar-wrapper">
       <el-menu
         :default-active="onRoutes"
@@ -26,8 +25,7 @@ import SidebarItem from "./SidebarItem.vue";
 export default {
   data() {
     return {
-      variables,
-      showLogo: true
+      variables
     };
   },
   components: {

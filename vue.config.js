@@ -22,15 +22,6 @@ module.exports = {
       }
     }
   },
-  configureWebpack: {
-    plugins: [
-      new FileManagerPlugin({
-        onEnd: {
-          archive: [{ source: "./dist", destination: "./dist/dist.zip" }]
-        }
-      })
-    ]
-  },
   devServer: {
     open: true,
     proxy: {
@@ -46,5 +37,14 @@ module.exports = {
     before(app) {
       apiMocker(app, path.resolve("./mock/index.js"));
     }
+  },
+  configureWebpack: {
+    plugins: [
+      new FileManagerPlugin({
+        onEnd: {
+          archive: [{ source: "./dist", destination: "./dist/dist.zip" }]
+        }
+      })
+    ]
   }
 };
