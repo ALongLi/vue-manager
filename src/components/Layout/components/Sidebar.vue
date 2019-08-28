@@ -27,6 +27,7 @@
 <script>
 import variables from "@/assets/css/_variable.scss";
 import SidebarItem from "./SidebarItem.vue";
+import { mapState } from "vuex";
 
 export default {
   data() {
@@ -38,15 +39,19 @@ export default {
     SidebarItem
   },
   computed: {
-    isCollapse() {
-      return this.$store.state.collapse;
-    },
+    ...mapState({
+      isCollapse: state => state.collapse,
+      menuList: state => state.menuList
+    }),
     onRoutes() {
       return this.$route.fullPath;
-    },
-    menuList() {
-      return this.$store.state.menuList;
     }
+    // isCollapse() {
+    //   return this.$store.state.collapse;
+    // },
+    // menuList() {
+    //   return this.$store.state.menuList;
+    // }
   },
   mounted() {
     // this.$bus.$on("toggleSidebar", function(isCollapse) {
