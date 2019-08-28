@@ -1,5 +1,11 @@
 <template>
-  <div class="sidebar-container">
+  <div class="sidebar-container has-logo">
+    <div class="logo-container">
+      <router-link key="collapse" class="sidebar-logo-link" to="/">
+        <img src="@/assets/logo.png" class="sidebar-logo" />
+        <h1 class="sidebar-title">后台管理系统</h1>
+      </router-link>
+    </div>
     <el-scrollbar wrap-class="scrollbar-wrapper">
       <el-menu
         :default-active="onRoutes"
@@ -69,7 +75,26 @@ export default {
     transition: 0s width ease-in-out, 0s padding-left ease-in-out,
       0s padding-right ease-in-out;
   }
-
+  .logo-container {
+    width: 100%;
+    height: 50px;
+    line-height: 50px;
+    background: #2b2f3a;
+    overflow: hidden;
+    img {
+      width: 32px;
+      vertical-align: middle;
+      margin-right: 15px;
+    }
+    h1 {
+      display: inline-block;
+      margin: 0;
+      color: #fff;
+      font-weight: 600;
+      line-height: 50px;
+      font-size: 14px;
+    }
+  }
   .scrollbar-wrapper {
     overflow-x: hidden !important;
   }

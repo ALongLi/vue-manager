@@ -47,6 +47,11 @@ instance.interceptors.response.use(
         });
         break;
       case 500:
+        Message({
+          message: err.message || "Error",
+          type: "error",
+          duration: 5 * 1000
+        });
         break;
       case 502:
         Message({
