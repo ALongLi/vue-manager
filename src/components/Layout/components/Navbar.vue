@@ -36,7 +36,7 @@ import Breadcrumb from "./Breadcrumb/index.vue";
 
 export default {
   data() {
-    return { fullscreen: false, username: "" };
+    return { fullscreen: false, username: "sysmanager" };
   },
   components: {
     Hamburger,

@@ -11,6 +11,7 @@ const proxy = {
   ],
   "POST /api/public/login": (req, res) => {
     const { password, username } = req.body;
+    console.log("mock-server接收的参数" + password, username);
     if (password === "123456" && username === "admin") {
       return res.send({
         status: "ok",

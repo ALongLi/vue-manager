@@ -2,7 +2,6 @@ import Vue from "vue";
 import App from "./App.vue";
 import router from "./router/router.js";
 import store from "./store/index.js";
-import axios from "axios";
 import echarts from "echarts";
 import ElementUI from "element-ui";
 import NProgress from "nprogress";
@@ -34,7 +33,6 @@ try {
 } catch (e) {
   // console.log(e);
 }
-Vue.prototype.$axios = axios;
 Vue.prototype.$bus = new Vue();
 Vue.prototype.$echarts = echarts;
 

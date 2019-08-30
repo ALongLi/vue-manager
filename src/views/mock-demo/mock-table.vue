@@ -32,14 +32,7 @@ export default {
   methods: {
     async getData() {
       const data = await fetch.getTableList({});
-      try {
-        const data3 = await fetch.getTableList3({});
-      } catch (error) {}
-      try {
-        const data2 = await fetch.getTableList2({});
-      } catch (error) {
-        console.log(error);
-      }
+
       this.data = data;
     }
   },
