@@ -1,8 +1,11 @@
 import Vue from "vue";
+require("babel-polyfill");
+// import "babel-polyfill";
 import App from "./App.vue";
 import router from "./router/router.js";
 import store from "./store/index.js";
 import echarts from "echarts";
+// import _ from "lodash";
 import ElementUI from "element-ui";
 import NProgress from "nprogress";
 import "nprogress/nprogress.css";
@@ -20,6 +23,8 @@ Vue.use(ElementUI, {
 Object.keys(filters).forEach(key => {
   Vue.filter(key, filters[key]);
 });
+[[1]].flatten();
+[(2, 3, 4)].flatMap(x => [x, x * 2]);
 
 const context = require.context("./directives", true, /^((?!demo\.js).)+\.js$/);
 try {

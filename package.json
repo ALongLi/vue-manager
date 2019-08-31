@@ -23,12 +23,14 @@
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint"
+    "lint": "vue-cli-service lint",
+    "analyzer": "cross-env use_analyzer=true npm run build"
   },
   "dependencies": {
+    "@babel/polyfill": "^7.4.4",
     "axios": "^0.18.0",
     "babel-polyfill": "^6.26.0",
-    "core-js": "^2.6.5",
+    "core-js": "^2.6.9",
     "dayjs": "^1.8.15",
     "echarts": "^4.1.0",
     "element-ui": "^2.11.1",
@@ -46,19 +48,26 @@
     "@vue/cli-plugin-eslint": "^3.10.0",
     "@vue/cli-service": "^3.10.0",
     "@vue/eslint-config-prettier": "^5.0.0",
+    "babel-core": "^6.26.3",
     "babel-eslint": "^10.0.1",
+    "babel-loader": "^8.0.6",
+    "babel-plugin-lodash": "^3.3.4",
+    "babel-preset-env": "^1.7.0",
+    "cross-env": "^5.2.0",
     "eslint": "^5.16.0",
     "eslint-plugin-prettier": "^3.1.0",
     "eslint-plugin-vue": "^5.0.0",
     "filemanager-webpack-plugin": "^2.0.5",
     "husky": "^3.0.3",
     "lint-staged": "^9.2.1",
+    "lodash-webpack-plugin": "^0.11.5",
     "mocker-api": "^1.7.9",
     "mockjs": "^1.0.1-beta3",
     "node-sass": "^4.9.0",
     "prettier": "^1.18.2",
     "sass-loader": "^7.1.0",
     "vue-template-compiler": "^2.6.10",
+    "webpack-bundle-analyzer": "^3.4.1",
     "webpack-dev-server": "^3.7.2"
   },
   "eslintConfig": {
@@ -82,6 +91,7 @@
   },
   "browserslist": [
     "> 1%",
-    "last 2 versions"
+    "last 2 versions",
+    "not ie <= 8"
   ]
 }

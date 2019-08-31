@@ -1,4 +1,7 @@
 const path = require("path");
+let BundleAnalyzerPlugin = require("webpack-bundle-analyzer")
+  .BundleAnalyzerPlugin;
+
 const FileManagerPlugin = require("filemanager-webpack-plugin");
 const apiMocker = require("mocker-api");
 function resolve(dir) {
@@ -38,13 +41,18 @@ module.exports = {
       apiMocker(app, path.resolve("./mock/index.js"));
     }
   },
-  configureWebpack: {
-    plugins: [
-      new FileManagerPlugin({
-        onEnd: {
-          archive: [{ source: "./dist", destination: "./dist/dist.zip" }]
-        }
-      })
-    ]
+  configureWebpack: config => {
+    if (process.env.NODE_ENV == "production") {
+      config.plugins.push(
+        new FileManagerPlugin({
+          onEnd: {
+            archive: [{ source: "./dist", destination: "./dist/dist.zip" }]
+          }
+        })
+      );
+    }
+    if (process.env.use_analyzer) {
+      config.plugins.push(new BundleAnalyzerPlugin());
+    }
   }
 };
