@@ -54,6 +54,7 @@ export default {
     // 全屏事件
     handleFullScreen() {
       let element = document.documentElement;
+      // let element = document.getElementById("pink");
       if (this.fullscreen) {
         if (document.exitFullscreen) {
           document.exitFullscreen();

@@ -19,12 +19,20 @@ Vue.config.productionTip = false;
 Vue.use(ElementUI, {
   size: "small"
 });
+const obj = {
+  foo: {
+    bar: {
+      baz: 42
+    }
+  }
+};
 
+const baz = obj?.foo?.bar?.baz; // 42
+
+const safe = obj?.qux?.baz ?? ""; // undefined
 Object.keys(filters).forEach(key => {
   Vue.filter(key, filters[key]);
 });
-[[1]].flatten();
-[(2, 3, 4)].flatMap(x => [x, x * 2]);
 
 const context = require.context("./directives", true, /^((?!demo\.js).)+\.js$/);
 try {
