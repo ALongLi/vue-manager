@@ -1,5 +1,6 @@
 import Vue from "vue";
 require("babel-polyfill");
+
 // import "babel-polyfill";
 import App from "./App.vue";
 import router from "./router/router.js";
