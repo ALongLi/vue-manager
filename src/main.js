@@ -47,6 +47,21 @@ try {
 } catch (e) {
   // console.log(e);
 }
+const components = require.context(
+  "./components",
+  true,
+  /^((?!demo\.vue).)+(index\.vue)|(index\.js)$/
+);
+try {
+  components.keys().forEach(path => {
+    let res = components(path);
+    if (res.default.name) {
+      Vue.component(res.default.name, res.default);
+    }
+  });
+} catch (e) {
+  console.log(e);
+}
 Vue.prototype.$bus = new Vue();
 Vue.prototype.$echarts = echarts;
 

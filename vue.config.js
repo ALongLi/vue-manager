@@ -1,6 +1,8 @@
 const path = require("path");
 let BundleAnalyzerPlugin = require("webpack-bundle-analyzer")
   .BundleAnalyzerPlugin;
+const webpack = require("webpack");
+// const environment = require("./environment");
 
 const FileManagerPlugin = require("filemanager-webpack-plugin");
 const apiMocker = require("mocker-api");
@@ -42,6 +44,17 @@ module.exports = {
     }
   },
   configureWebpack: config => {
+    // let args = process.env;
+    // console.log(args);
+    if (process.env.dev_production) {
+      config.plugins.push(
+        new webpack.DefinePlugin({
+          "process.env.dev_production": JSON.stringify(
+            process.env.dev_production
+          )
+        })
+      );
+    }
     if (process.env.NODE_ENV == "production") {
       config.plugins.push(
         new FileManagerPlugin({

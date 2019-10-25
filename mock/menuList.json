@@ -25,6 +25,14 @@
                 "href": "/components/click-outside",
                 "icon": "",
                 "label": "clickOutside"
+            },
+            {
+                "children": [],
+                "description": "",
+                "funcId": "components1004",
+                "href": "/components/debounce",
+                "icon": "",
+                "label": "debounce"
             }
         ],
         "description": "",
@@ -32,6 +40,40 @@
         "href": "",
         "icon": "iconzujian",
         "label": "组件",
+        "type": null
+    },
+    {
+        "children": [
+            {
+                "children": [],
+                "description": "",
+                "funcId": "bfunc1004",
+                "href": "/directives/drag-dialog",
+                "icon": "",
+                "label": "DragDialogDemo"
+            },
+            {
+                "children": [],
+                "description": "",
+                "funcId": "components1004",
+                "href": "/directives/click-outside",
+                "icon": "",
+                "label": "clickOutside"
+            },
+            {
+                "children": [],
+                "description": "",
+                "funcId": "components1004",
+                "href": "/directives/debounce",
+                "icon": "",
+                "label": "debounce"
+            }
+        ],
+        "description": "",
+        "funcId": "bfunc1101",
+        "href": "",
+        "icon": "iconzujian",
+        "label": "指令",
         "type": null
     },
     {

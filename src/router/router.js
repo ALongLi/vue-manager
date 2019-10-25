@@ -6,6 +6,7 @@ import Router from "vue-router";
 import Layout from "@/components/Layout/Layout.vue";
 import nestedRouter from "./modules/nested";
 import componentsRouter from "./modules/components";
+import directiveRouter from "./modules/directives";
 import settingRouter from "./modules/setting";
 import mockRouter from "./modules/mock";
 
@@ -15,6 +16,7 @@ export const authRoutes = [
   // 权限路由
   nestedRouter,
   componentsRouter,
+  directiveRouter,
   settingRouter
 ];
 

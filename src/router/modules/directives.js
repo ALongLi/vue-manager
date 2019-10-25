@@ -4,31 +4,31 @@ const _import = require("../_import_" + process.env.NODE_ENV);
 
 import Layout from "@/components/Layout/Layout.vue";
 
-const componentsRouter = {
-  path: "/components",
+const directivesRouter = {
+  path: "/directives",
   component: Layout,
-  meta: { title: "组件" },
+  meta: { title: "指令" },
   redirect: "",
   children: [
     {
       path: "drag-dialog",
-      component: _import("components-demo/drag-dialog"),
+      component: _import("directives-demo/drag-dialog"),
       name: "DragDialogDemo",
       meta: { title: "DragDialogDemo" }
     },
     {
       path: "click-outside",
-      component: _import("components-demo/click-outside"),
+      component: _import("directives-demo/click-outside"),
       name: "clickOutsideDemo",
       meta: { title: "clickOutside" }
     },
     {
       path: "debounce",
-      component: _import("components-demo/debounce"),
+      component: _import("directives-demo/debounce"),
       name: "debounce",
       meta: { title: "debounce" }
     }
   ]
 };
 
-export default componentsRouter;
+export default directivesRouter;
