@@ -2,7 +2,13 @@
   <div class="login">
     <main class="num_rain"></main>
     <div class="ms-login">
-      <el-form class="ms-content" ref="ruleForm" label-width="0px" :model="ruleForm" :rules="rules">
+      <el-form
+        class="ms-content"
+        ref="ruleForm"
+        label-width="0px"
+        :model="ruleForm"
+        :rules="rules"
+      >
         <div class="inputBox">
           <img src="@/assets/img/login_account_icon.png" alt />
           <el-form-item prop="username">

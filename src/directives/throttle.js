@@ -5,7 +5,7 @@ export default {
   // bind update
   name: "throttle",
   inserted(el, bindings) {
-    // el真实的dom元素
+    // el真实的dom元素 value绑定的函数，arg
     const { value, arg, modifiers } = bindings;
     let wait = +Object.keys(modifiers)[0] ?? 250;
     el.listener = throttle(value, wait);

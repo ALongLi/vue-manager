@@ -6,12 +6,12 @@
 </template>
 <script>
 import Navbar from "./Navbar.vue";
-import Tags from "./Tags.vue";
+// import Tags from "./Tags.vue";
 
 export default {
   components: {
-    Navbar,
-    Tags
+    Navbar
+    // Tags
   },
   data() {
     return {};

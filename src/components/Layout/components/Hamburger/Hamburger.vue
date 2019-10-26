@@ -1,7 +1,11 @@
 <template>
-  <div class="hamburger-container" style=" padding: 0 15px; " @click="toggleSidebar">
+  <div
+    class="hamburger-container"
+    style=" padding: 0 15px; "
+    @click="toggleSidebar"
+  >
     <svg
-      :class="{'is-active':isActive}"
+      :class="{ 'is-active': isActive }"
       class="hamburger"
       viewBox="0 0 1024 1024"
       width="64"

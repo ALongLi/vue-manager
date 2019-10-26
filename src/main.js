@@ -20,17 +20,17 @@ Vue.config.productionTip = false;
 Vue.use(ElementUI, {
   size: "small"
 });
-const obj = {
+/* const obj = {
   foo: {
     bar: {
       baz: 42
     }
   }
-};
+}; */
 
-const baz = obj?.foo?.bar?.baz; // 42
+//const baz = obj?.foo?.bar?.baz; // 42
 
-const safe = obj?.qux?.baz ?? ""; // undefined
+//const safe = obj?.qux?.baz ?? ""; // undefined
 Object.keys(filters).forEach(key => {
   Vue.filter(key, filters[key]);
 });

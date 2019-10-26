@@ -1,7 +1,6 @@
 <template>
   <div>tag标签</div>
 </template>
- 
 <script>
 export default {
   data() {
@@ -10,5 +9,4 @@ export default {
 };
 </script>
 
-<style scope>
-</style>
+<style scope></style>

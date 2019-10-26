@@ -1,8 +1,8 @@
 <template>
   <div class="components-container" v-click-outside="close">
-    <el-button type="primary" @click="isVisible = !isVisible"
-      >show pannel</el-button
-    >
+    <el-button type="primary" @click="isVisible = !isVisible">
+      show pannel
+    </el-button>
     <div v-show="isVisible" class="bc"></div>
   </div>
 </template>
