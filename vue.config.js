@@ -42,6 +42,9 @@ module.exports = {
     before(app) {
       apiMocker(app, path.resolve("./mock/index.js"));
     }
+    // after(app) {
+    //   apiMocker(app, path.resolve("./mock/index.js"));
+    // }
   },
   configureWebpack: config => {
     // let args = process.env;

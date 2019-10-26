@@ -5,8 +5,11 @@ require("babel-polyfill");
 import App from "./App.vue";
 import router from "./router/router.js";
 import store from "./store/index.js";
-import echarts from "echarts";
+// import echarts from "echarts";
+import "./globalLib/initGlobal";
 // import _ from "lodash";
+console.log(echarts);
+debugger;
 import ElementUI from "element-ui";
 import NProgress from "nprogress";
 import "nprogress/nprogress.css";
@@ -31,6 +34,9 @@ Vue.use(ElementUI, {
 //const baz = obj?.foo?.bar?.baz; // 42
 
 //const safe = obj?.qux?.baz ?? ""; // undefined
+let env = process.env;
+console.log(env.NODE_ENV);
+
 Object.keys(filters).forEach(key => {
   Vue.filter(key, filters[key]);
 });
