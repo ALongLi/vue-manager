@@ -14,7 +14,7 @@
   },
   "dependencies": {
     "@babel/polyfill": "^7.4.4",
-    "axios": "^0.18.0",
+    "axios": "^0.21.1",
     "babel-polyfill": "^6.26.0",
     "dayjs": "^1.8.15",
     "echarts": "^4.1.0",
